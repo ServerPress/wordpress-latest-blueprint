@@ -3,8 +3,23 @@
  * Automate the setup of the freshest version of WordPress
  */
 
-/** Download, unzip WordPress, and move the contents into root. */
-ds_cli_exec( "wget https://wordpress.org/latest.zip && unzip latest.zip && mv ./wordpress/* ./" );
+/* Fetch the latest version of WordPress */
+ds_cli_exec( "wp core download" );
+
+/* Install WordPress
+ *
+ * You can change the title, admin_user, admin_password, admin_email
+ */
+ds_cli_exec( "wp core install --url=$siteName --title='Dynamic Blueprint' --admin_user=testadmin --admin_password=password --admin_email=pleaseupdate@$siteName" );
+
+//** Change the tagline
+ds_cli_exec( "wp option update blogdescription 'The sites tagline'" );
+
+//** Change Permalink structure
+ds_cli_exec( "wp rewrite structure '/%postname%' --quiet" );
+
+//** Discourage search engines from indexing this site
+ds_cli_exec( "wp option update blog_public 'on'" );
 
 /** Check if index.php unpacked okay */
 if ( is_file( "index.php" ) ) {
