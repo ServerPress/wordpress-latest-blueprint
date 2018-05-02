@@ -25,5 +25,5 @@ ds_cli_exec( "wp option update blog_public 'on'" );
 if ( is_file( "index.php" ) ) {
 
 	/** Cleanup the empty folder, download, and this script. */
-	ds_cli_exec( "rm -rf wordpress && rm index.htm && rm latest.zip && rm blueprint.php" );	
+	ds_cli_exec( "rm blueprint.php" );	
 }
