@@ -12,6 +12,9 @@ ds_cli_exec( "wp core download" );
  */
 ds_cli_exec( "wp core install --url=$siteName --title='Dynamic Blueprint' --admin_user=testadmin --admin_password=password --admin_email=pleaseupdate@$siteName" );
 
+//** Update Akismet
+ds_cli_exec( "wp plugin update akismet --quiet" );
+
 //** Change the tagline
 ds_cli_exec( "wp option update blogdescription 'The sites tagline'" );
 
