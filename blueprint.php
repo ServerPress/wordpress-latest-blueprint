@@ -24,6 +24,8 @@ ds_cli_exec( "wp rewrite structure '/%postname%' --quiet" );
 //** Discourage search engines from indexing this site
 ds_cli_exec( "wp option update blog_public 'on'" );
 
+ds_cli_exec( "wp post update 1 --post_content='<div style=\"color:#fff;background-color:#cd2653;padding:20px;\"><p style=\"font-family: \"Inter var\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, sans-serif;\"><strong>CONGRATULATIONS:</strong></p><p>Your Dynamic blueprint has fetched the latest version of WordPress and created a user.</p><p>Username: <strong>testadmin</strong><br>Password: <strong>password</strong></p></div><p>Would you like to go to the <a href=\"/wp-admin\">Dashboard</a>?'" );
+
 /** Check if index.php unpacked okay */
 if ( is_file( "index.php" ) ) {
 
