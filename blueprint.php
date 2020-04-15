@@ -24,7 +24,7 @@ ds_cli_exec( "wp rewrite structure '/%postname%' --quiet" );
 //** Discourage search engines from indexing this site
 ds_cli_exec( "wp option update blog_public 'on'" );
 
-ds_cli_exec( "wp post update 1 --post_content='<div style=\"color:#fff;background-color:#cd2653;padding:20px;\"><p style=\"font-family: \"Inter var\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, sans-serif;\"><strong>CONGRATULATIONS:</strong></p><p>Your Dynamic blueprint has fetched the latest version of WordPress and created a user.</p><p>Username: <strong>testadmin</strong><br>Password: <strong>password</strong></p></div><p>Would you like to go to the <a href=\"/wp-admin\">Dashboard</a>?'" );
+ds_cli_exec( "wp post update 1 --post_content='<p style=\"color:#fff;background-color:#cd2653;padding:10px;\"><strong>CONGRATULATIONS:</strong> Your Dynamic blueprint has fetched the latest version of WordPress and created a user.<br>Username: <strong>testadmin</strong><br>Password: <strong>password</strong></p><p>Would you like to go to the <a href=\"/wp-admin\">Dashboard</a>?</p><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/W8h23fNu0d0\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>'" );
 
 /** Check if index.php unpacked okay */
 if ( is_file( "index.php" ) ) {
