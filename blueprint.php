@@ -1,6 +1,11 @@
 <?php
 /**
  * Automate the setup of the freshest version of WordPress
+ * Version: 1.0.3
+ *
+ * You can modify this blueprint to your liking. For example a user is created named "testadmin" with a password of "password". You can change these and the admin_email address. 
+ * Also if you do not want a particular function to occur you can comment that line out by placing two fowrad slashes in front of the line. For example: // ds_cli_exec( "wp plugin update akismet" ); 
+ * This will no longer delete the Akismet plugin.
  */
 
 /* Fetch the latest version of WordPress */
