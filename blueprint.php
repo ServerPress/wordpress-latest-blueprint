@@ -1,29 +1,27 @@
 <?php
 /**
- * Automate the setup of the freshest version of WordPress
- * Version: 1.0.3
+ * Automate the setup of the latest version of WordPress
+ * Version: 1.0.4
  *
  * You can modify this blueprint to your liking. For example a user is created named "testadmin" with a password of "password". You can change these and the admin_email address. 
- * Also if you do not want a particular function to occur you can comment that line out by placing two fowrad slashes in front of the line. For example: // ds_cli_exec( "wp plugin update akismet" ); 
- * This will no longer delete the Akismet plugin.
+ * Also if you do not want a particular function to occur you can comment that line out by placing two fowrad slashes in front of the line. For example: // ds_cli_exec( "wp plugin update --all" ); 
+ * This will no longer update all plugins.
  */
 
-/* Fetch the latest version of WordPress */
+//** Fetch the latest version of WordPress
 ds_cli_exec( "wp core download" );
 
 /* Install WordPress
  *
  * You can change the title, admin_user, admin_password, admin_email
  */
- $title="Dynamic Blueprint";
- $admin_user="testadmin";
- $password="password";
- $admin_email="testadmin@$siteName";
- 
-ds_cli_exec( "wp core install --url=$siteName --title='$title' --admin_user=$admin_user --admin_password=$password --admin_email=$admin_email" );
+ds_cli_exec( "wp core install --url=$siteName --title='Dynamic Blueprint' --admin_user=testadmin --admin_password=password --admin_email=pleaseupdate@$siteName" );
 
-//** Update Akismet
-ds_cli_exec( "wp plugin update akismet --quiet" );
+//** Update All Plugins
+ds_cli_exec( "wp plugin update --all" );
+
+//** Update All Themes
+ds_cli_exec( "wp theme update --all" );
 
 //** Change the tagline
 ds_cli_exec( "wp option update blogdescription 'The sites tagline'" );
@@ -34,12 +32,17 @@ ds_cli_exec( "wp rewrite structure '/%postname%' --quiet" );
 //** Discourage search engines from indexing this site
 ds_cli_exec( "wp option update blog_public 'on'" );
 
-ds_cli_exec( "wp post update 1 --post_content='<p style=\"color:#fff;background-color:#cd2653;padding:10px;\"><strong>CONGRATULATIONS:</strong> Your Dynamic blueprint has fetched the latest version of WordPress and created a user.<br>Username: <strong>testadmin</strong><br>Password: <strong>password</strong></p><p>Would you like to go to the <a href=\"/wp-admin\">Dashboard</a>?</p><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/W8h23fNu0d0\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>'" );
+//** Make a new page for the homepage
+ds_cli_exec( "wp post create --post_type=page --post_title='Home' --post_status='publish' --post_author=1 --post_content='<!-- wp:columns {\"backgroundColor\":\"white\"} --><div class=\"wp-block-columns has-white-background-color has-background\"><!-- wp:column --><div class=\"wp-block-column\"><!-- wp:paragraph --><p><strong>CONGRATULATIONS:</strong> Your Dynamic blueprint has fetched the latest version of WordPress and created a user.<br><br>Username: <strong>testadmin</strong><br>Password: <strong>password</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p><a href=\"/wp-admin\" data-type=\"URL\" data-id=\"/wp-admin\">Log into the Dashboard</a></p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns -->'" ); // Home page
 
-/** Check if index.php unpacked okay */
+ds_cli_exec( "wp option update show_on_front 'page'" );
+ds_cli_exec( "wp option update page_on_front '4'" );
+
+
+//** Check if index.php unpacked okay
 if ( is_file( "index.php" ) ) {
 
-	/** Cleanup the empty folder, download, and this script. */
+	//** Cleanup
 	ds_cli_exec( "rm blueprint.php" );	
 	ds_cli_exec( "rm index.htm" );
 }
