@@ -4,7 +4,9 @@ A DesktopServer blueprint that automatically obtains the latest version of WordP
 * Fetch the latest version of WordPress
 * Add the Title
 * Create an Administrator user with password
-* Update Akismet Plugin
+* Update All Plugins
+* Update All Themes
 * Change the websites Tag line
 * Change Permalink structure to %postname%
 * Discourage search engines from indexing this site
+* Create "Home" page and assign as homepage
