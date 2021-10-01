@@ -42,4 +42,7 @@ if ( is_file( "index.php" ) ) {
 	//** Cleanup
 	ds_cli_exec( "rm blueprint.php" );	
 	ds_cli_exec( "rm index.htm" );
+	ds_cli_exec( "rm blueprint-ds3.php");
+	ds_cli_exec( "rm blueprint-ds5.php");
+	ds_cli_exec( "rm blueprint.png");
 } 
