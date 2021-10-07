@@ -142,6 +142,9 @@ $ds_runtime->add_action('ds_workflow_create_done', function($results) {
 
 		//** Cleanup
 		@unlink( $sitePath . "/blueprint.php");
+		@unlink( $sitePath . "/blueprint-ds3.php");
+		@unlink( $sitePath . "/blueprint-ds5.php");
+		@unlink( $sitePath . "/blueprint.png");
 		@unlink( $sitePath . "/index.htm");
 	}
 
