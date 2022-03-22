@@ -104,7 +104,7 @@ $ds_runtime->add_action('ds_workflow_create_done', function($results) {
  	 *
      * You can change the title, admin_user, admin_password, admin_email
      */ 
-	$cmd = "wp core install --url=$siteName --title='" . $obj->bp_title . "' --admin_user=" . $obj->bp_username . " --admin_password=" . $obj->bp_password . " --admin_email=" . $obj->bp_username . "@$siteName";
+	$cmd = "wp core install --url=https://$siteName --title='" . $obj->bp_title . "' --admin_user=" . $obj->bp_username . " --admin_password=" . $obj->bp_password . " --admin_email=" . $obj->bp_username . "@$siteName";
 	$ds_runtime->exec($cmd, $sitePath);
 
 	//** Update All Plugins

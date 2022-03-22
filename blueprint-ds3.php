@@ -15,7 +15,7 @@ ds_cli_exec( "wp core download" );
  *
  * You can change the title, admin_user, admin_password, admin_email
  */
-ds_cli_exec( "wp core install --url=$siteName --title='Dynamic Blueprint' --admin_user=testadmin --admin_password=password --admin_email=pleaseupdate@$siteName" );
+ds_cli_exec( "wp core install --url=https://$siteName --title='Dynamic Blueprint' --admin_user=testadmin --admin_password=password --admin_email=pleaseupdate@$siteName" );
 
 //** Update All Plugins
 ds_cli_exec( "wp plugin update --all" );
